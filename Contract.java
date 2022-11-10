@@ -1,4 +1,4 @@
-public interface Contract {
+public interface Contract { //implement when we're done 
 
     void grab(String item);
     String drop(String item);
