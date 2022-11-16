@@ -21,7 +21,7 @@ _____ 10 pts: The class meaningfully implements each of the methods in described
       ___**YES**__ `Number shrink();`
       ___**YES**__ `Number grow();`
       ___**YES**__ `void rest();`
-      _____ `void undo();`
+      __**YES**___ `void undo();`
 
 
 ## General Items:
@@ -34,14 +34,14 @@ _____ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
       _____ Classes & class members all have Javadoc header comments
 
-      _____ Clear and consistent indentation of bracketed sections
+      __**YES**___ Clear and consistent indentation of bracketed sections
 
-      _____ Adheres to Java conventions on naming & capitalization
+      ___**YES**__ Adheres to Java conventions on naming & capitalization
 
-      _____ Methods & variables all have clear and accurate names
+      ___**YES**__ Methods & variables all have clear and accurate names
 
-      _____ Methods avoid confusing side effects
+      ___**YES**__ Methods avoid confusing side effects
 
-_____ 1 pt: All required files included with submission (including completed `rubric.md` file)
+___**YES**__ 1 pt: All required files included with submission (including completed `rubric.md` file)
 
 _____ 1 pt: `reflection.md` contains your reflection on the assignment, **including a detailed description of the class you implemented and what it does**

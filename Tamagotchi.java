@@ -5,7 +5,7 @@ public class Tamagotchi implements Contract {
     // Attributes
     public String name;  // can make private and use accessors and manipulators 
     public String color; 
-    private int age;
+    private double age;
     private int locationX;
     private int locationY;
     private ArrayList <String> inventory;
@@ -17,7 +17,7 @@ public class Tamagotchi implements Contract {
     public Tamagotchi (String name, String color) {
         this.name = name;
         this.color = color; 
-        this.age = 1;
+        this.age = 100;
         this.locationX = 0 ;
         this.locationY= 0 ;
     }
@@ -35,7 +35,7 @@ public class Tamagotchi implements Contract {
 
     /**
      * Grabs an item and adds it to inventory
-     * @param item
+     * @param item The item grabbed 
      */
     public void grab(String item){
         System.out.println("You have grabbed" + item +" it is being added to your inventory");
@@ -106,14 +106,22 @@ public class Tamagotchi implements Contract {
         }
     }
 
-    // public boolean fly(int x, int y){
-    //     if (fly )
-    //     locationX += x;
-    //     locationY += y;
-    // }
+   
+    /**
+     * Allows tamagotchi to fly based on the 
+     * @param int x
+     * @param int y 
+     * @return A boolean, true signifies tamagotchi flew 
+     */
+    public boolean fly(int x, int y){
+        locationX += x;
+        locationY += y;
+        return (true);
+    }
 
    
-    public Number shrink(){
+    public  Number shrink(){
+
         this.age -= 10;
         System.out.println(" Your age has gone down by -10 pt");
 
@@ -122,6 +130,8 @@ public class Tamagotchi implements Contract {
     public Number grow(){
         System.out.println(" Your age has gone up by 10 pt+");
         this.age += 10;
+        
+
     }
 
     /* (non-Javadoc)
@@ -131,10 +141,21 @@ public class Tamagotchi implements Contract {
         System.out.println("You are now resting!");
         this.age += 20;
     }
-    // public void undo(){
 
-    // }
+    /* 
+     * Re-sets the attributes, basically gives default values
+     */
+    public void undo(){
+        this.name= "Steve";
+        this.color = "white"; 
+        this.age = 100;
+        this.locationX = 0 ;
+        this.locationY= 0 ;
+    }
+    }
 
     // Main
+
+
     
-}
+
