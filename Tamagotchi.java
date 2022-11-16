@@ -9,8 +9,8 @@ public class Tamagotchi implements Contract {
     private int locationX;
     private int locationY;
     private ArrayList <String> inventory;
-    private ArrayList <String> powerUp;
-    
+    private ArrayList <String> powerUp ;
+   
 
 
     // Constrtuctor 
@@ -20,6 +20,7 @@ public class Tamagotchi implements Contract {
         this.age = 100;
         this.locationX = 0 ;
         this.locationY= 0 ;
+        
     }
 
     // Accessors & Manipulators 
@@ -85,19 +86,19 @@ public class Tamagotchi implements Contract {
     public boolean walk(String direction){
         direction.toLowerCase();
         if (direction == "north"){
-            locationY +=1;
+            this.locationY +=1;
             return(true);
         }
         if (direction == "south"){
-            locationY -=1;
+            this.locationY -=1;
             return(true);
         } 
         if (direction == "west"){
-            locationX -=1;
+            this.locationX -=1;
             return(true);
         }
         if (direction == "east"){
-            locationX += 1;
+            this.locationX += 1;
             return(true);
         }
         else{
@@ -114,24 +115,20 @@ public class Tamagotchi implements Contract {
      * @return A boolean, true signifies tamagotchi flew 
      */
     public boolean fly(int x, int y){
-        locationX += x;
-        locationY += y;
+        this.locationX += x;
+        this.locationY += y;
         return (true);
     }
 
    
     public  Number shrink(){
-
         this.age -= 10;
         System.out.println(" Your age has gone down by -10 pt");
-
     }
 
     public Number grow(){
         System.out.println(" Your age has gone up by 10 pt+");
         this.age += 10;
-        
-
     }
 
     /* (non-Javadoc)
@@ -152,9 +149,17 @@ public class Tamagotchi implements Contract {
         this.locationX = 0 ;
         this.locationY= 0 ;
     }
-    }
+    
 
     // Main
+    public static void main(String[]args){
+        Tamagotchi Jochy = new Tamagotchi("Jochy", "blue");
+        System.out.println(Jochy);
+        
+
+
+    }
+}
 
 
     
