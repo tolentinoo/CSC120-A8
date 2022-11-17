@@ -8,8 +8,9 @@ public class Tamagotchi implements Contract {
     private double age;
     private int locationX;
     private int locationY;
-    private ArrayList <String> inventory;
-    private ArrayList <String> powerUp ;
+    private ArrayList <String> inventory = new ArrayList<String>();
+    private ArrayList <String> powerUp = new ArrayList<String>();
+    
    
 
 
@@ -33,14 +34,23 @@ public class Tamagotchi implements Contract {
     }
 
     // Methods 
+    /**
+     * Creates the list of power ups. 
+     */
+    public void createPowerUp(){
+        powerUp.add("star");
+        powerUp.add("banana");
+        powerUp.add("apple");
+    }
 
     /**
      * Grabs an item and adds it to inventory
      * @param item The item grabbed 
      */
     public void grab(String item){
-        System.out.println("You have grabbed" + item +" it is being added to your inventory");
-        inventory.add(item);
+        System.out.println("You have grabbed " + item +" it is being added to your inventory");
+        this.inventory.add(item);
+        System.out.println("Your inventory"+this.inventory);
     }
 
     /**
@@ -49,7 +59,8 @@ public class Tamagotchi implements Contract {
      * @return The item dropped
      */
     public String drop(String item){
-         inventory.remove(item);
+         this.inventory.remove(item);
+         System.out.println("You have dropped " + item );
          return (item);
          
     }
@@ -75,7 +86,7 @@ public class Tamagotchi implements Contract {
      */
     public void use(String item){
         if (inventory.contains(item) == true);
-            System.out.println("You have unlocked a new achievement ;) Do you want to use it?");
+            System.out.println("You have unlocked a new achievement ;) ");
     }
 
     /**
@@ -84,9 +95,9 @@ public class Tamagotchi implements Contract {
      * @return A boolean, true signifies tamagotchi moved
      */
     public boolean walk(String direction){
-        direction.toLowerCase();
         if (direction == "north"){
             this.locationY +=1;
+            System.out.println(locationY);
             return(true);
         }
         if (direction == "south"){
@@ -117,18 +128,22 @@ public class Tamagotchi implements Contract {
     public boolean fly(int x, int y){
         this.locationX += x;
         this.locationY += y;
+        System.out.println(locationX +" " +locationY);
         return (true);
     }
 
    
     public  Number shrink(){
         this.age -= 10;
-        System.out.println(" Your age has gone down by -10 pt");
+        System.out.println(" Your age has gone down by -10 pt. Age = " + this.age);
+        return(this.age);
     }
 
     public Number grow(){
-        System.out.println(" Your age has gone up by 10 pt+");
+        
         this.age += 10;
+        System.out.println(" Your age has gone up by 10 pt+. Age =" + this.age);
+        return(this.age);
     }
 
     /* (non-Javadoc)
@@ -137,6 +152,7 @@ public class Tamagotchi implements Contract {
     public void rest(){
         System.out.println("You are now resting!");
         this.age += 20;
+        System.out.println("Age = " + this.age);
     }
 
     /* 
@@ -148,13 +164,29 @@ public class Tamagotchi implements Contract {
         this.age = 100;
         this.locationX = 0 ;
         this.locationY= 0 ;
+        System.out.println("You have now rest the Tamagotchi \n" + this.name + "\n"+ this.age);
     }
     
 
     // Main
     public static void main(String[]args){
-        Tamagotchi Jochy = new Tamagotchi("Jochy", "blue");
-        System.out.println(Jochy);
+        Tamagotchi pet  = new Tamagotchi("Jochy", "blue");
+        System.out.println(pet);
+        pet.grab("star");
+        pet.grab("banana");
+        pet.drop("banana");
+        pet.examine("bottle");
+        pet.createPowerUp();
+        pet.examine("star");
+        pet.use("star");
+        pet.walk("north");
+        pet.fly(2,5);
+        pet.shrink();
+        pet.grow();
+        pet.undo();
+
+
+
         
 
 
