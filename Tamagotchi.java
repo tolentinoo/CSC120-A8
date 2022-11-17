@@ -123,8 +123,8 @@ public class Tamagotchi implements Contract {
    
     /**
      * Allows tamagotchi to fly based on the 
-     * @param int x
-     * @param int y 
+     * @param int x The distance pet walks horizontally
+     * @param int y The distance pet walks vertically 
      * @return A boolean, true signifies tamagotchi flew 
      */
     public boolean fly(int x, int y){
