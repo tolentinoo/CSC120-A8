@@ -14,7 +14,9 @@ public class Tamagotchi implements Contract {
    
 
 
-    // Constrtuctor 
+   /**
+     * Constructor 
+     */
     public Tamagotchi (String name, String color) {
         this.name = name;
         this.color = color; 
@@ -133,12 +135,19 @@ public class Tamagotchi implements Contract {
     }
 
    
+    /* 
+     * Decreases the age of the tamagotchi
+     */
     public  Number shrink(){
         this.age -= 10;
         System.out.println(" Your age has gone down by -10 pt. Age = " + this.age);
         return(this.age);
     }
 
+
+    /* 
+     * Increases the age of the tamagotchi
+     */
     public Number grow(){
         
         this.age += 10;
@@ -146,8 +155,8 @@ public class Tamagotchi implements Contract {
         return(this.age);
     }
 
-    /* (non-Javadoc)
-     * @see Contract#rest()
+    /* 
+     * Boosts the age of the tamagotchi
      */
     public void rest(){
         System.out.println("You are now resting!");
